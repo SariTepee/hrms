@@ -1,7 +1,8 @@
-package saritepe.hrms.dataAccess.abstracts;
+package saritepe.hrms.core.dataAccess;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import saritepe.hrms.entities.concretes.User;
+import saritepe.hrms.core.entities.User;
 
 public interface UserDao extends JpaRepository<User, Integer> {
+    User findByEmail(String email);
 }

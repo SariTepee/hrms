@@ -1,10 +1,13 @@
-package saritepe.hrms.entities.concretes;
+package saritepe.hrms.core.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -19,8 +22,13 @@ public class User {
     private int id;
 
     @Column(name = "email")
+    @Email
+    @NotBlank
+    @NotNull
     private String email;
 
     @Column(name = "password")
+    @NotBlank
+    @NotNull
     private String password;
 }

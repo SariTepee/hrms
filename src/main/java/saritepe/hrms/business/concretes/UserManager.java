@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import saritepe.hrms.business.abstracts.UserService;
 import saritepe.hrms.core.utilities.result.DataResult;
+import saritepe.hrms.core.utilities.result.Result;
 import saritepe.hrms.core.utilities.result.SuccessDataResult;
-import saritepe.hrms.dataAccess.abstracts.UserDao;
-import saritepe.hrms.entities.concretes.User;
+import saritepe.hrms.core.dataAccess.UserDao;
+import saritepe.hrms.core.entities.User;
+import saritepe.hrms.core.utilities.result.SuccessResult;
 
 import java.util.List;
 
@@ -23,5 +25,23 @@ public class UserManager implements UserService {
     @Override
     public DataResult<List<User>> getAll() {
         return new SuccessDataResult<List<User>>(userDao.findAll());
+    }
+
+    @Override
+    public Result add(User user) {
+        this.userDao.save(user);
+        return new SuccessResult("Kullanici eklendi");
+    }
+
+    @Override
+    public Result delete(User user) {
+        this.userDao.save(user);
+        return new SuccessResult("Kullanici silindi");
+    }
+
+    @Override
+    public DataResult<User> findByEmail(String email) {
+
+        return new SuccessDataResult<User>(this.userDao.findByEmail(email), "Kullanici bulundu...");
     }
 }

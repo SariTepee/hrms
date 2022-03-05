@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<EasyWSDL>
+  <Info>
+    <Version>5.12.12.0</Version>
+    <AccountType>Basic</AccountType>
+    <LibrariesFolder>easywsdl</LibrariesFolder>
+    <MainClass>IGPKPSPublicSoap</MainClass>
+  </Info>
+  <Settings>
+    <Url>https://tckimlik.nvi.gov.tr/Service/KPSPublic.asmx</Url>
+    <ClassPrefix/>
+    <PackageName>kps</PackageName>
+    <AddDocumentation>false</AddDocumentation>
+    <EnableAdvancedFeatures>true</EnableAdvancedFeatures>
+    <EnableMTOM>false</EnableMTOM>
+    <EncodeIllegalCharacters>true</EncodeIllegalCharacters>
+    <GenerateAsyncOperations>false</GenerateAsyncOperations>
+    <ImplementSerializable>false</ImplementSerializable>
+    <ImplementParcelable>false</ImplementParcelable>
+    <AddAnyCollection>false</AddAnyCollection>
+    <DateTimeSupport>Default</DateTimeSupport>
+    <Repackage/>
+    <GenerateHtmlDocumentation>false</GenerateHtmlDocumentation>
+    <AddDataSetSupport>false</AddDataSetSupport>
+    <PlatformType>Java</PlatformType>
+    <Annotations>None</Annotations>
+    <AddLibraries>true</AddLibraries>
+    <GenerateGetSetMethods>false</GenerateGetSetMethods>
+    <DetectDictionaries>false</DetectDictionaries>
+  </Settings>
+  <Files>
+    <File>IGPDateTimeConverter.java</File>
+    <File>IGPExtendedSoapSerializationEnvelope.java</File>
+    <File>IGPHelper.java</File>
+    <File>IGPKPSPublicSoap.java</File>
+    <File>IGPKPSPublicSoap12.java</File>
+    <File>IGPMarshalGuid.java</File>
+    <File>IGPStandardDateTimeConverter.java</File>
+  </Files>
+  <Libraries>
+    <File>ExKsoap2-1.0.3.1.jar</File>
+    <File>ksoap2-android-assembly-3.6.4-jar-with-dependencies.jar</File>
+  </Libraries>
+</EasyWSDL>
