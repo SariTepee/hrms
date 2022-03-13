@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import saritepe.hrms.core.entities.User;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Data
 @Entity
@@ -16,8 +15,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
-@Table(name = "candidates")
-public class Candidate extends User {
+@Table(name = "employees")
+public class Employee extends User{
 
     @Column(name = "first_name")
     private String firstName;
@@ -25,13 +24,8 @@ public class Candidate extends User {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "identity_number")
-    private String identityNumber;
-
-    @Column(name = "date_of_birth")
-    private LocalDate dateOfBirth;
-
     @JsonIgnore
-    @OneToOne(mappedBy = "candidate")
-    private VerificationCodeCandidate verificationCodeCandidate;
+    @OneToOne(mappedBy = "employee")
+    private EmployeeConfirm employeeConfirm;
+
 }

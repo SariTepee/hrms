@@ -7,8 +7,6 @@ import saritepe.hrms.entities.concretes.JobTitle;
 
 import java.util.List;
 
-public interface JobTitleService{
-    DataResult<List<JobTitle>> getAll();
-    Result add(JobTitle jobTitle);
-    Result delete(JobTitle jobTitle);
+public interface JobTitleService extends BaseEntityService<JobTitle>{
+    DataResult<JobTitle> getByTitle(String title);
 }

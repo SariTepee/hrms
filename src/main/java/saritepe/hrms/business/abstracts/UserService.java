@@ -6,12 +6,7 @@ import saritepe.hrms.core.utilities.result.Result;
 
 import java.util.List;
 
-public interface UserService {
-    DataResult<List<User>> getAll();
+public interface UserService extends BaseEntityService<User>{
 
-    Result add(User user);
-
-    Result delete(User user);
-
-    DataResult<User> findByEmail(String email);
+    DataResult<User> getByEmail(String email);
 }

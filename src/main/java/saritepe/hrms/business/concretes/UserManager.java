@@ -23,14 +23,14 @@ public class UserManager implements UserService {
     }
 
     @Override
-    public DataResult<List<User>> getAll() {
-        return new SuccessDataResult<List<User>>(userDao.findAll());
-    }
-
-    @Override
     public Result add(User user) {
         this.userDao.save(user);
         return new SuccessResult("Kullanici eklendi");
+    }
+
+    @Override
+    public Result update(User entity) {
+        return null;
     }
 
     @Override
@@ -40,8 +40,18 @@ public class UserManager implements UserService {
     }
 
     @Override
-    public DataResult<User> findByEmail(String email) {
+    public DataResult<List<User>> getAll() {
+        return new SuccessDataResult<List<User>>(userDao.findAll());
+    }
 
-        return new SuccessDataResult<User>(this.userDao.findByEmail(email), "Kullanici bulundu...");
+    @Override
+    public DataResult<User> getById(int id) {
+        return new SuccessDataResult<User>(userDao.getById(id));
+    }
+
+    @Override
+    public DataResult<User> getByEmail(String email) {
+
+        return new SuccessDataResult<User>(this.userDao.getByEmail(email), "Kullanici bulundu...");
     }
 }

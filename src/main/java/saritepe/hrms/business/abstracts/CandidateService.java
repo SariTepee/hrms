@@ -1,4 +1,6 @@
 package saritepe.hrms.business.abstracts;
 
-public interface CandidateService {
+import saritepe.hrms.entities.concretes.Candidate;
+
+public interface CandidateService extends BaseEntityService<Candidate>{
 }

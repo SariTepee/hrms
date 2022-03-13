@@ -19,5 +19,5 @@ public class JobTitle {
     private int id;
 
     @Column(name = "title")
-    private String tittle;
+    private String title;
 }

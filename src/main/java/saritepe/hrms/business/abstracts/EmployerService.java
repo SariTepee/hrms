@@ -5,6 +5,6 @@ import saritepe.hrms.entities.concretes.Employer;
 
 import java.util.List;
 
-public interface EmployerService {
-    DataResult<List<Employer>> getAll();
+public interface EmployerService extends BaseEntityService<Employer>{
+
 }
