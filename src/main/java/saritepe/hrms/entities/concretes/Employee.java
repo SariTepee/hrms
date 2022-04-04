@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import saritepe.hrms.core.entities.User;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -25,7 +26,7 @@ public class Employee extends User{
     private String lastName;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "employee")
-    private EmployeeConfirm employeeConfirm;
+    @OneToMany(mappedBy = "employee")
+    private List<EmployeeConfirm> employeeConfirm;
 
 }

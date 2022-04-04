@@ -20,11 +20,6 @@ public class JobTitlesController {
         this.jobTitleService = jobTitleService;
     }
 
-    @GetMapping("/getAll")
-    public DataResult<List<JobTitle>> getAll(){
-        return this.jobTitleService.getAll();
-    }
-
     @PostMapping("/add")
     public Result add(JobTitle jobTitle){
         return this.jobTitleService.add(jobTitle);
@@ -33,5 +28,20 @@ public class JobTitlesController {
     @PostMapping("/delete")
     public Result delete(JobTitle jobTitle){
         return this.jobTitleService.delete(jobTitle);
+    }
+
+    @GetMapping("/getAll")
+    public DataResult<List<JobTitle>> getAll(){
+        return this.jobTitleService.getAll();
+    }
+
+    @GetMapping("/getById")
+    public DataResult<JobTitle> getById(int id) {
+        return this.jobTitleService.getById(id);
+    }
+
+    @GetMapping("/getByTitle")
+    public DataResult<JobTitle> getByTitle(String title) {
+        return this.jobTitleService.getByTitle(title);
     }
 }

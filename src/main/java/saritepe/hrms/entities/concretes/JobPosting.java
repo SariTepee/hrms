@@ -6,29 +6,31 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
-@Data
 @Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-@Table(name = "verification_codes")
-public class VerificationCode {
-
+@Table(name = "job_postings")
+public class JobPosting {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "code")
-    private String code;
+    @Column(name = "content")
+    private String content;
 
-    @Column(name = "is_verified")
-    private boolean isVerified;
+    @ManyToOne
+    @JoinColumn(name = "employer_id")
+    private Employer employer;
 
-    @Column(name = "verified_date")
-    private LocalDateTime verifiedDate;
+    @ManyToOne
+    @JoinColumn(name = "job_title_id")
+    private JobTitle jobTitle;
 
+    @ManyToOne
+    @JoinColumn(name = "job_type_id")
+    private JobType jobType;
 }

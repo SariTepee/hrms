@@ -41,17 +41,16 @@ public class UserManager implements UserService {
 
     @Override
     public DataResult<List<User>> getAll() {
-        return new SuccessDataResult<List<User>>(userDao.findAll());
+        return new SuccessDataResult<List<User>>(this.userDao.findAll());
     }
 
     @Override
     public DataResult<User> getById(int id) {
-        return new SuccessDataResult<User>(userDao.getById(id));
+        return new SuccessDataResult<User>(this.userDao.getById(id));
     }
 
     @Override
     public DataResult<User> getByEmail(String email) {
-
-        return new SuccessDataResult<User>(this.userDao.getByEmail(email), "Kullanici bulundu...");
+        return new SuccessDataResult<User>(this.userDao.getByEmail(email));
     }
 }

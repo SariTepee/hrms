@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import saritepe.hrms.business.abstracts.JobTitleService;
 import saritepe.hrms.core.utilities.result.*;
-import saritepe.hrms.core.dataAccess.abstracts.JobTitleDao;
+import saritepe.hrms.dataAccess.abstracts.JobTitleDao;
+import saritepe.hrms.entities.concretes.Employer;
 import saritepe.hrms.entities.concretes.JobTitle;
 
 import java.util.List;
@@ -49,19 +50,19 @@ public class JobTitleManager implements JobTitleService {
 
     @Override
     public DataResult<JobTitle> getById(int id) {
-        return null;
+        return new SuccessDataResult<JobTitle>(this.jobTitleDao.getById(id));
     }
 
     @Override
     public DataResult<JobTitle> getByTitle(String title) {
-        return new SuccessDataResult<JobTitle>(jobTitleDao.getByTitle(title));
+        return new SuccessDataResult<JobTitle>(this.jobTitleDao.getByTitle(title));
     }
 
     private boolean checkIfJobTitleExists(String title) {
-        boolean result = false;
+        boolean result = true;
 
         if (getByTitle(title).getData() == null){
-            result = true;
+            result = false;
         }
 
         return result;

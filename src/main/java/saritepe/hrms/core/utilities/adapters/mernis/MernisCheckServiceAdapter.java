@@ -1,8 +1,11 @@
 package saritepe.hrms.core.utilities.adapters.mernis;
 
 import kps.IGPKPSPublicSoap;
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDate;
 
+@Service
 public  class MernisCheckServiceAdapter implements UserCheckService{
 
     @Override
@@ -10,18 +13,12 @@ public  class MernisCheckServiceAdapter implements UserCheckService{
 
         IGPKPSPublicSoap igpkpsPublicSoap = new IGPKPSPublicSoap();
 
-        boolean result = false;
-
         try {
-            result = igpkpsPublicSoap.TCKimlikNoDogrula(Long.parseLong(identityNumber)
-                    ,firstName.toUpperCase()
-                    ,lastName.toUpperCase()
-                    ,dateOfBirth.getYear());
-        }
-        catch (Exception e){
+            return igpkpsPublicSoap.TCKimlikNoDogrula(Long.parseLong(identityNumber), firstName.toUpperCase(), lastName.toUpperCase(), dateOfBirth.getYear());
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return result;
+        return false;
     }
 }

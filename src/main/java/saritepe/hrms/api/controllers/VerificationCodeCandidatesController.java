@@ -3,9 +3,12 @@ package saritepe.hrms.api.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import saritepe.hrms.business.abstracts.VerificationCodeCandidateService;
+import saritepe.hrms.business.abstracts.VerificationCodeService;
 import saritepe.hrms.core.utilities.result.DataResult;
+import saritepe.hrms.entities.concretes.VerificationCode;
 import saritepe.hrms.entities.concretes.VerificationCodeCandidate;
 
 import java.util.List;
@@ -15,6 +18,7 @@ import java.util.List;
 public class VerificationCodeCandidatesController {
 
     private VerificationCodeCandidateService verificationCodeCandidateService;
+
 
     @Autowired
     public VerificationCodeCandidatesController(VerificationCodeCandidateService verificationCodeCandidateService) {
@@ -27,7 +31,7 @@ public class VerificationCodeCandidatesController {
     }
 
     @GetMapping("/getById")
-    public DataResult<VerificationCodeCandidate> getById(int id) {
+    public DataResult<VerificationCodeCandidate> getById(@RequestParam int id) {
         return this.verificationCodeCandidateService.getById(id);
     }
 }

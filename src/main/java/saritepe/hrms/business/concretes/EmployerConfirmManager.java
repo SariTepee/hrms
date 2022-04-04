@@ -3,7 +3,8 @@ package saritepe.hrms.business.concretes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import saritepe.hrms.business.abstracts.EmployerConfirmService;
-import saritepe.hrms.core.dataAccess.abstracts.EmployeeConfirmDao;
+import saritepe.hrms.core.utilities.result.SuccessDataResult;
+import saritepe.hrms.dataAccess.abstracts.EmployeeConfirmDao;
 import saritepe.hrms.core.utilities.result.DataResult;
 import saritepe.hrms.core.utilities.result.Result;
 import saritepe.hrms.entities.concretes.EmployeeConfirm;
@@ -43,5 +44,10 @@ public class EmployerConfirmManager implements EmployerConfirmService {
     @Override
     public DataResult<EmployeeConfirm> getById(int id) {
         return null;
+    }
+
+    @Override
+    public DataResult<EmployeeConfirm> getByIdAndEmployee_FirstName(int id, String employeeFirstName) {
+        return new SuccessDataResult<EmployeeConfirm>(this.employerConfirmDao.getByIdAndEmployee_FirstName(id, employeeFirstName), "Data Listelendi");
     }
 }

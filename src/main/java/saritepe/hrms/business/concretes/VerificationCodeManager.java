@@ -3,7 +3,7 @@ package saritepe.hrms.business.concretes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import saritepe.hrms.business.abstracts.VerificationCodeService;
-import saritepe.hrms.core.dataAccess.abstracts.VerificationCodeDao;
+import saritepe.hrms.dataAccess.abstracts.VerificationCodeDao;
 import saritepe.hrms.core.utilities.result.DataResult;
 import saritepe.hrms.core.utilities.result.Result;
 import saritepe.hrms.core.utilities.result.SuccessDataResult;
@@ -19,6 +19,7 @@ public class VerificationCodeManager implements VerificationCodeService {
     @Autowired
     public VerificationCodeManager(VerificationCodeDao verificationCodeDao) {
         this.verificationCodeDao = verificationCodeDao;
+
     }
 
     @Override
@@ -44,5 +45,15 @@ public class VerificationCodeManager implements VerificationCodeService {
     @Override
     public DataResult<VerificationCode> getById(int id) {
         return new SuccessDataResult<VerificationCode>(verificationCodeDao.getById(id));
+    }
+
+    @Override
+    public DataResult<List<VerificationCode>> getByIsVerified(boolean isVerified) {
+        return new SuccessDataResult<List<VerificationCode>>(this.verificationCodeDao.getByIsVerified(isVerified));
+    }
+
+    @Override
+    public DataResult<VerificationCode> getByCode(String code) {
+        return new SuccessDataResult<VerificationCode>(this.verificationCodeDao.getByCode(code));
     }
 }

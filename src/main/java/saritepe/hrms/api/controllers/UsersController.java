@@ -10,8 +10,6 @@ import saritepe.hrms.business.abstracts.UserService;
 import saritepe.hrms.core.utilities.result.DataResult;
 import saritepe.hrms.core.entities.User;
 import saritepe.hrms.core.utilities.result.ErrorDataResult;
-import saritepe.hrms.core.utilities.result.Result;
-import saritepe.hrms.entities.concretes.JobTitle;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -33,6 +31,11 @@ public class UsersController {
         return this.userService.getAll();
     }
 
+    @GetMapping("/getByEmail")
+    public DataResult<User> getByEmail(@RequestParam String email){
+        return this.userService.getByEmail(email);
+    }
+/*
     @PostMapping("/add")
     public ResponseEntity<?> add(@Valid @RequestBody User user){
         return ResponseEntity.ok(this.userService.add(user));
@@ -53,9 +56,6 @@ public class UsersController {
         ErrorDataResult<Object> errors = new ErrorDataResult<Object>(validationErrors, "Doğrulama hataları");
         return errors;
     }
+*/
 
-    @GetMapping("/findByEmail")
-    DataResult<User> getByEmail(String email){
-        return userService.getByEmail(email);
-    }
 }

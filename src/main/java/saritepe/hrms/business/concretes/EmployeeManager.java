@@ -2,7 +2,9 @@ package saritepe.hrms.business.concretes;
 
 import org.springframework.stereotype.Service;
 import saritepe.hrms.business.abstracts.EmployeeService;
-import saritepe.hrms.core.dataAccess.abstracts.EmployeeDao;
+import saritepe.hrms.core.utilities.result.SuccessDataResult;
+import saritepe.hrms.core.utilities.result.SuccessResult;
+import saritepe.hrms.dataAccess.abstracts.EmployeeDao;
 import saritepe.hrms.core.utilities.result.DataResult;
 import saritepe.hrms.core.utilities.result.Result;
 import saritepe.hrms.entities.concretes.Employee;
@@ -19,17 +21,18 @@ public class EmployeeManager implements EmployeeService {
     }
 
     @Override
-    public Result add(Employee entity) {
+    public Result add(Employee employee) {
+        this.employeeDao.save(employee);
+        return new SuccessResult("Şirket çalışanı başarılı bir şekilde eklendi");
+    }
+
+    @Override
+    public Result update(Employee employee) {
         return null;
     }
 
     @Override
-    public Result update(Employee entity) {
-        return null;
-    }
-
-    @Override
-    public Result delete(Employee entity) {
+    public Result delete(Employee employee) {
         return null;
     }
 
@@ -40,6 +43,6 @@ public class EmployeeManager implements EmployeeService {
 
     @Override
     public DataResult<Employee> getById(int id) {
-        return null;
+        return new SuccessDataResult<Employee>(this.employeeDao.getById(id));
     }
 }

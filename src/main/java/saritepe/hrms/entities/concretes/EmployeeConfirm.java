@@ -30,7 +30,7 @@ public class EmployeeConfirm {
     @Column(name = "confirm_date")
     private LocalDateTime confirmDate;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "employee_id",referencedColumnName = "id")
     private Employee employee;
 }
